@@ -13,7 +13,7 @@ const Login = () => {
         value={text}
       />
       <TextInput
-        style={styles.input}
+        style={styles2.input}
         onChangeText={onChangeNumber}
         value={number}
         placeholder="One Time Password"
@@ -26,7 +26,20 @@ const Login = () => {
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    margin: 12,
+    marginTop: 40,
+    marginRight: 40,
+    marginLeft: 40,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
+
+const styles2 = StyleSheet.create({
+  input: {
+    height: 40,
+    marginTop: 25,
+    marginRight: 40,
+    marginLeft: 40,
     borderWidth: 1,
     padding: 10,
   },
