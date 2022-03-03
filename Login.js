@@ -1,48 +1,27 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import React from 'react';
+import {StyleSheet, View, Text, Button} from 'react-native';
 
-const Login = () => {
-  const [text, onChangeText] = React.useState("Phone Number");
-  const [number, onChangeNumber] = React.useState(null);
+export default function Login(props){
+    return(
+        <View style={styles.login}>
+            <Text>This is the Login Screen</Text>
+            <Button title="Log In" onPress={()=>props.setUserLoggedIn(true)}></Button>
+        </View>
 
-  return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
-      <TextInput
-        style={styles2.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="One Time Password"
-        keyboardType="numeric"
-      />
-    </SafeAreaView>
-  );
-};
+    );
+}
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    marginTop: 40,
-    marginRight: 40,
-    marginLeft: 40,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
-
-const styles2 = StyleSheet.create({
-  input: {
-    height: 40,
-    marginTop: 25,
-    marginRight: 40,
-    marginLeft: 40,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
-
-export default Login;
+    login: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
+        backgroundColor: 'green',
+        height: '12%',
+        alignItems: 'flex-end',
+        paddingBottom: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+        
+      },
+})

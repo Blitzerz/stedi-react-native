@@ -15,7 +15,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   
-  const [userLoggedin, setUserLogginIn] = useState(false);
+  const [userLoggedin, setUserLoggedIn] = useState(false);
   
   if(userLoggedin){
   return (
@@ -72,7 +72,7 @@ export default function App() {
 
 
 } else {
-  return (<Login/>)
+  return (<Login setUserLoggedIn={setUserLoggedIn}/>)
 }
 }
 
