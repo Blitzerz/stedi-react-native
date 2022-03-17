@@ -1,34 +1,35 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Button} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, View, Text, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 
 
 const Login = (props) => {
-    const [text, onChangeText] = React.useState(null);
-    const [number, onChangeNumber] = React.useState(null);
+    const [phoneNumber, setPhoneNumber] = React.useState(null);
+    const [oneTimePassword, setOneTimePassword] = React.useState(null);
   
     return (
       <SafeAreaView>
         <TextInput
           style={styles.input}
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setPhoneNumber}
+          value={phoneNumber}
           placeholder="Phone Number"
+          keyboardType="numeric"
         />
 
-        <Button title="Get OTP" onPress={()=>getOTP(text)}>
+        <Button title="Get OTP" onPress={()=>getOTP(phoneNumber)}>
         </Button>
         
         <TextInput
           style={styles1.input}
-          onChangeNumber={onChangeNumber}
-          value={number}
+          onChangeNumber={setOneTimePassword}
+          value={oneTimePassword}
           placeholder="OTP"
           keyboardType="numeric"
         />
 
-        <Button title="Log In" onPress={()=>Log(props.setUserLoggedIn, text, number)}>
+        <Button title="Log In" onPress={()=>Log(props.setUserLoggedIn, phoneNumber, oneTimePassword)}>
         </Button>
       </SafeAreaView>
     );
@@ -58,12 +59,12 @@ const Login = (props) => {
     fetch('https://dev.stedi.me/twofactorlogin/' + phoneNumber,{
     method: 'POST',
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: 'application/text',
+      'Content-Type': 'application/text'
   }}
     )};
 
-    const Log = (setUserLoggedIn, number, otp) => {
+    const Log = (setUserLoggedIn, phoneNumber, OTP) => {
       setUserLoggedIn(true);
       fetch('https://dev.stedi.me/twofactorlogin', {
       method: 'POST',
@@ -72,8 +73,8 @@ const Login = (props) => {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      phoneNumber: number,
-      oneTimePassword: otp
+      phoneNumber: phoneNumber,
+      oneTimePassword: OTP
     })
   }
       )};
