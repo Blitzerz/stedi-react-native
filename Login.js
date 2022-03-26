@@ -37,19 +37,25 @@ const Login = (props) => {
   
   const styles = StyleSheet.create({
     input: {
-      height: 40,
-      marginTop: 12,
+      height: 30,
+      marginTop: 40,
+      marginLeft: 40,
+      marginBottom: 20,
       borderWidth: 1,
       padding: 10,
+      width: 300,
     },
   });
 
   const styles1 = StyleSheet.create({
     input: {
-      height: 40,
-      marginTop: 30,
+      height: 30,
+      marginTop: 40,
+      marginLeft: 40,
+      marginBottom: 20,
       borderWidth: 1,
       padding: 10,
+      width: 300,
     },
   });
   
@@ -59,7 +65,7 @@ const Login = (props) => {
     fetch('https://dev.stedi.me/twofactorlogin/' + phoneNumber,{
     method: 'POST',
     headers: {
-      Accept: 'application/text',
+      'Accept': 'application/text',
       'Content-Type': 'application/text'
   }}
     )};
@@ -69,7 +75,7 @@ const Login = (props) => {
       fetch('https://dev.stedi.me/twofactorlogin', {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
