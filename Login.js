@@ -70,17 +70,16 @@ const Login = (props) => {
   }}
     )};
 
-    const Log = (setUserLoggedIn, phoneNumber, OTP) => {
-      setUserLoggedIn(true);
-      fetch('https://dev.stedi.me/twofactorlogin', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    },
+  const Log = (setUserLoggedIn, phoneNumber, oneTimePassword) => {
+    setUserLoggedIn(true)
+    fetch('https://dev.stedi.me/twofactorlogin', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  },
     body: JSON.stringify({
       phoneNumber: phoneNumber,
-      oneTimePassword: OTP
-    })
-  }
-      )};
+      oneTimePassword: oneTimePassword
+  }),
+})};

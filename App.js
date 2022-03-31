@@ -27,7 +27,7 @@ export default function App() {
       >
         <Tab.Screen
           name='Home'
-          children={()=><Home setUserEmail={setUserEmail} />}
+          component={Home}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
